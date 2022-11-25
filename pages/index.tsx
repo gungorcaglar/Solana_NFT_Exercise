@@ -3,6 +3,10 @@ import type { NextPage } from "next"
 import Head from "next/head"
 import NavBar from "../components/NavBar"
 import styles from "../styles/Home.module.css"
+import Disconnected from '../components/Disconnected'
+import { connected } from "process"
+import { useWallet } from "@solana/wallet-adapter-react"
+import Connected from "../components/Connected"
 
 const Home: NextPage = () => {
 
@@ -26,6 +30,7 @@ const Home: NextPage = () => {
           <Spacer />
           <Center>
 						{ /* If connected, the second view, otherwise the first */ }
+            {!connected && <Disconnected />}
                 </Center>
           <Spacer />
 
